@@ -11,19 +11,31 @@ const dataBruger = {
   bruger3: { name: "Nina", age: 21, color: "brun" },
   bruger4: { name: "Michael", age: 26, color: "blue" },
 };
+saveBruger(dataBruger);
 
 // Event listener: vis data for valgt bruger
+userSelect.addEventListener("change", userSelectChange);
+
 function userSelectChange() {
   const selectedUser = userSelect.value;
   console.log("change user to: " + selectedUser);
   // TODO: Hent data fra localStorage og vis i formularen
+  const bruger = hentBruger();
+  const data = bruger[selectedUser];
+  console.log(data);
+  nameInput.value = data.name;
+  ageInput.value = data.age;
+  colorInput.value = data.color;
 }
 
 function saveBruger(bruger) {
   localStorage.setItem("bruger", JSON.stringify(bruger));
 }
 
-fun;
+function hentBruger() {
+  const bruger = localStorage.getItem("bruger");
+  return JSON.parse(bruger);
+}
 
 // Event listener: gem data fra formularen
 saveButton.addEventListener("click", () => {
