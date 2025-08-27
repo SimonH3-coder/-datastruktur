@@ -47,7 +47,15 @@ saveButton.addEventListener("click", () => {
   const color = colorInput.value;
 
   // TODO: Gem data i localStorage for den valgte bruger
+  const bruger = hentBruger();
+  const data = bruger[selectedUser];
+  console.log(data);
+  data.age = ageInput.value;
+  data.color = colorInput.value;
+  data.name = nameInput.value;
+  saveBruger(bruger);
 });
 
 // Vis data for første bruger ved load
 window.onload = userSelectChange;
+const
