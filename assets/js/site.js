@@ -58,4 +58,3 @@ saveButton.addEventListener("click", () => {
 
 // Vis data for første bruger ved load
 window.onload = userSelectChange;
-const
